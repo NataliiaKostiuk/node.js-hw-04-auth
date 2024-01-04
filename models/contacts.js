@@ -9,6 +9,10 @@ const contactsSchema = new Schema({
     email: { type: String, required: true },
     phone: { type: Number, required: true },
     favorite: { type: Boolean, default: false },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    }
 }, { versionKey: false, timestamps: true });
 
 contactsSchema.post('save', handleSaveError);
